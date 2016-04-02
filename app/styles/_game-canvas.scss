@@ -12,10 +12,10 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    width: em(1028px);
-    height: em(560px);
-    margin-left: (em(-1028px) / 2);
-    margin-top: (em(-500px) / 2);
+    width: em(1280px);
+    height: em(720px);
+    margin-left: (em(-1280px) / 2);
+    margin-top: (em(-720px) / 2);
 
     // Don't draw outside this box.
     overflow: hidden;
@@ -23,7 +23,7 @@
     // Some graphics
 
     //background: blue;
-    background-image: url(../images/backBar.png);
+    background-image: url(../images/backgroundMosaic.png);
     background-repeat: no-repeat;
     background-size: 100%;
 }
@@ -31,7 +31,9 @@
 .Floor {
     position: absolute;
     bottom: 4em;
-    width: em(1024px)+em(75px);
+    //height: em(10px);
+    width: em(1280px)+em(75px);
+    background-size: 100%;
     //width: em(1px);
     //height: 4em;
 
@@ -41,7 +43,7 @@
     //animation: 0.3s slideFloor infinite;
 
     animation-name: slideFloor;
-    animation-duration: 0.3s;
+    animation-duration: 0.25s;
     animation-iteration-count: infinite;
     animation-fill-mode: forwards; 
     animation-timing-function: linear;
@@ -52,7 +54,7 @@
         transform: translateX(0);
     }
     to {
-        transform: translateX(em(-47px));
+        transform: translateX(em(-54px));
     }
 }
 

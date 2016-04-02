@@ -25,7 +25,7 @@ window.Player = (function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
 		this.pos.angle = 0;
-		SPEED = 30;	
+		SPEED = 30;
 	};
 
 	Player.prototype.onFrame = function(delta) {
@@ -37,7 +37,7 @@ window.Player = (function() {
 			audio.play();
 
 			SPEED = 10;
-			this.pos.y -= delta * (SPEED * 2);
+			this.pos.y -= delta * (SPEED * 10);
 			
 			if(this.pos.angle > 0) {
 				this.pos.angle = 0;
