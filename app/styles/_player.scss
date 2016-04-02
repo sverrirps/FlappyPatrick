@@ -11,3 +11,25 @@
     background: blue;
     transform: translateZ(0);
 }
+
+.Player-wings {
+	// Position measured from top-left of parent (i.e. Player)
+    position: absolute;
+    top: 0.25em;
+    left: 0.4em;
+    width: 1.5em;
+    height: 2em;
+    background: yellow;
+
+    transform-origin: top left;
+    animation: 0.5s flapWings alternate infinite;
+}
+
+@keyframes flapWings {
+    from {
+        transform: rotateX(0);
+    }
+    to {
+        transform: rotateX(180deg);
+    }
+}
