@@ -25,7 +25,7 @@ window.Player = (function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
 		this.pos.angle = 0;
-		SPEED = 30;	
+		SPEED = 30;
 	};
 
 	Player.prototype.onFrame = function(delta) {
