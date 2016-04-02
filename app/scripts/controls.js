@@ -12,6 +12,7 @@ window.Controls = (function() {
         this._didJump = false;
         this._didClick = false;
         this._spaceHit = false;
+        this._mute = false;
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
             .on('keyup', this._onKeyUp.bind(this));
@@ -19,6 +20,8 @@ window.Controls = (function() {
         $('.GameCanvas')
             .on('mousedown', this._onMouseDown.bind(this))
             .on('mouseup', this._onMouseUp.bind(this));
+        $('.Mute')
+            .on('click', this._onMuteClick.bind(this));
     };
 
     Controls.prototype._onKeyDown = function(e) {
@@ -52,6 +55,23 @@ window.Controls = (function() {
     Controls.prototype._onMouseUp = function(e) {
 
         this._didClick = false;
+        console.log(e);
+    };
+
+    Controls.prototype._onMuteClick = function(e) {
+
+        var elem = document.getElementById('Mute');
+        if (elem.value==='Mute') {
+            elem.value = 'Unmute';
+        } else {
+            elem.value = 'Mute';
+        }
+
+        if (this._mute) {
+            this._mute = false;
+        } else {
+            this._mute = true;
+        }
         console.log(e);
     };
 

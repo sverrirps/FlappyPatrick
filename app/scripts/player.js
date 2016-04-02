@@ -29,12 +29,14 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
-
 		
 		if ((Controls._spaceHit) || (Controls._didClick)) {
+
 			//play sound:
-			var audio = document.getElementsByTagName("audio")[0];
-			audio.play();
+			if (!Controls._mute) {
+				var audio = document.getElementsByTagName('audio')[0];
+				audio.play();
+			}
 
 			SPEED = 10;
 			this.pos.y -= delta * (SPEED * 10);
@@ -50,7 +52,6 @@ window.Player = (function() {
 			if(this.pos.angle < 120) {
 				this.pos.angle += (delta * SPEED * 4);
 			}
-			
 		}
 
 		this.checkCollisionWithBounds();
