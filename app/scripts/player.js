@@ -26,17 +26,17 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		if (Controls.keys.right) {
-			this.pos.x += delta * SPEED;
+		console.log("click in player: " + Controls._didClick);
+		
+		if (Controls.keys.space) {
+			this.pos.y -= delta * SPEED*3;
 		}
-		if (Controls.keys.left) {
-			this.pos.x -= delta * SPEED;
+		else if (Controls._didClick) {
+			console.log('click works!!');
+			this.pos.y -= delta * SPEED*3;
 		}
-		if (Controls.keys.down) {
+		else {
 			this.pos.y += delta * SPEED;
-		}
-		if (Controls.keys.up) {
-			this.pos.y -= delta * SPEED;
 		}
 
 		this.checkCollisionWithBounds();
