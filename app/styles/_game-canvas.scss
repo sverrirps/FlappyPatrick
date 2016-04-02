@@ -12,20 +12,52 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    width: em(1000px);
-    height: em(500px);
-    margin-left: (em(-1024px) / 2);
-    margin-top: (em(-576px) / 2);
-
-    //margin-left: (em(-500px) / 2);
-    //margin-top: (em(-887px) / 2);
+    width: em(1028px);
+    height: em(560px);
+    margin-left: (em(-1028px) / 2);
+    margin-top: (em(-500px) / 2);
 
     // Don't draw outside this box.
     overflow: hidden;
 
     // Some graphics
+
     //background: blue;
     background-image: url(../images/backgroundOcean.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
+}
+
+.Floor {
+    position: absolute;
+    bottom: 4em;
+    width: em(1024px)+em(75px);
+    //width: em(1px);
+    //height: 4em;
+
+    // sliding floor:
+    transform-origin: bottom right;
+
+    //animation: 0.3s slideFloor infinite;
+
+    animation-name: slideFloor;
+    animation-duration: 0.3s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards; 
+    animation-timing-function: linear;
+}
+
+@keyframes slideFloor {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(em(-47px));
+    }
+}
+
+.Sand {
+    position: absolute;
+    bottom: 0;
+    height: 5em;
 }
