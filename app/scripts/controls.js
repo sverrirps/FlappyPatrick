@@ -30,14 +30,14 @@ window.Controls = (function() {
         }
 
         // Remember that this button is down.
-        if (e.keyCode == 32) {
+        if (e.keyCode === 32) {
             this._spaceHit = true;
             return false;
         }
     };
 
     Controls.prototype._onKeyUp = function(e) {
-        if (e.keyCode == 32) {
+        if (e.keyCode === 32) {
             this._spaceHit = false;
             return false;
         }
@@ -45,12 +45,14 @@ window.Controls = (function() {
 
     Controls.prototype._onMouseDown = function(e) {
 
-       this._didClick = true;
+        this._didClick = true;
+        console.log(e);
     };
 
     Controls.prototype._onMouseUp = function(e) {
 
-       this._didClick = false;
+        this._didClick = false;
+        console.log(e);
     };
 
     /**
