@@ -22,4 +22,34 @@
 
     // Some graphics
     background: red;
+
+}
+
+.Floor {
+    position: absolute;
+    bottom: 0;
+    width: em(1024px)+em(75px);
+    //width: em(1px);
+    //height: 4em;
+
+    // sliding floor:
+    transform-origin: bottom right;
+
+    //animation: 0.3s slideFloor infinite;
+
+    animation-name: slideFloor;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideFloor {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(em(-75px));
+    }
 }
