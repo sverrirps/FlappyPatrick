@@ -43,13 +43,16 @@ window.Controls = (function() {
         }
     };
 
-    Controls.prototype._onMouseDown = function() {
+    Controls.prototype._onMouseDown = function(e) {
+
         this._didClick = true;
+        console.log(e);
     };
 
-    Controls.prototype._onMouseUp = function() {
+    Controls.prototype._onMouseUp = function(e) {
 
         this._didClick = false;
+        console.log(e);
     };
 
     /**

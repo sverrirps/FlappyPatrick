@@ -28,6 +28,7 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
+
 		if(SPEED < 50) {
 			SPEED += GRAVITY;	
 		}
@@ -72,3 +73,4 @@ window.Player = (function() {
 	return Player;
 
 })();
+ 
