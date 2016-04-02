@@ -26,7 +26,6 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		console.log("click in player: " + Controls._didClick);
 		
 		if ((Controls._spaceHit) || (Controls._didClick)) {
 			this.pos.y -= delta * SPEED*3;
