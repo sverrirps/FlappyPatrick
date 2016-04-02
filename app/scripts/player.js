@@ -15,7 +15,7 @@ window.Player = (function() {
 	var Player = function(el, game) {
 		this.el = el;
 		this.game = game;
-		this.pos = { x: 0, y: 0, rotation: 0 };
+		this.pos = { x: 0, y: 0, angle: 0 };
 	};
 
 	/**
@@ -24,7 +24,7 @@ window.Player = (function() {
 	Player.prototype.reset = function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
-		this.pos.rotation = 0;
+		this.pos.angle = 0;
 		SPEED = 30;	
 	};
 
@@ -36,16 +36,16 @@ window.Player = (function() {
 			SPEED = 30;
 			this.pos.y -= delta * (SPEED * 3);
 			
-			if(this.pos.rotation > 0) {
-				this.pos.rotation = -25;
+			if(this.pos.angle > 0) {
+				this.pos.angle = 0;
 			}
 
 		} else {
 			SPEED += GRAVITY;
 			this.pos.y += delta * SPEED;
 
-			if(this.pos.rotation < 90) {
-				this.pos.rotation += (delta * SPEED * 8);
+			if(this.pos.angle < 120) {
+				this.pos.angle += (delta * SPEED * 4);
 			}
 			
 		}
@@ -53,11 +53,11 @@ window.Player = (function() {
 		this.checkCollisionWithBounds();
 
 		// Update UI
-		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.pos.rotation + 'deg)');
+		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.pos.angle + 'deg)');
 
-		this.el.css('-moz-transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.pos.rotation + 'deg)');
+		this.el.css('-moz-transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.pos.angle + 'deg)');
 
-		this.el.css('-webkit-transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.pos.rotation + 'deg)');
+		this.el.css('-webkit-transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.pos.angle + 'deg)');
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
