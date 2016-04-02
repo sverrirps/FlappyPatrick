@@ -14,7 +14,7 @@ module.exports = function (grunt) {
 
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
-
+    
     // Define the configuration for all the tasks
     grunt.initConfig({
 
@@ -128,16 +128,6 @@ module.exports = function (grunt) {
                 '!<%= config.app %>/scripts/vendor/*',
                 'test/spec/{,*/}*.js'
             ]
-        },
-
-        // Mocha testing framework configuration options
-        mocha: {
-            all: {
-                options: {
-                    run: true,
-                    urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
-                }
-            }
         },
 
         // Compiles Sass to CSS and generates necessary files if requested
@@ -374,8 +364,7 @@ module.exports = function (grunt) {
         }
 
         grunt.task.run([
-            'connect:test',
-            'mocha'
+            'connect:test'
         ]);
     });
 
