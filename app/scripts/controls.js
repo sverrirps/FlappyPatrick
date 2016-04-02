@@ -33,9 +33,13 @@ window.Controls = (function() {
     Controls.prototype._onKeyDown = function(e) {
         console.log('in key down');
         // Only jump if space wasn't pressed.
+
         if (e.keyCode === 32 && !this.keys.space) {
             this._didJump = true;
+            console.log("space pressed");
         }
+        
+        //console.log('key pressed code: ' + e.keyCode);
 
         // Remember that this button is down.
         if (e.keyCode in KEYS) {
