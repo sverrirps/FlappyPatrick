@@ -33,7 +33,7 @@ window.Player = (function() {
 		
 		if ((Controls._spaceHit) || (Controls._didClick)) {
 
-			SPEED = 30;
+			SPEED = 10;
 			this.pos.y -= delta * (SPEED * 2);
 			
 			if(this.pos.angle > 0) {

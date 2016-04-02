@@ -19,8 +19,8 @@
     position: absolute;
     width: em(40px);
     height: em(40px);
-    top: 0.69em;
-    left: 0.80em;
+    top: 1.3em;
+    left: 1.4em;
     background-size: 100%;
     background-repeat: no-repeat;
     background-image: url(../images/hand.png);
@@ -31,7 +31,7 @@
 
 @keyframes flapWings {
     from {
-        transform: rotateZ(-10deg);
+        transform: rotateZ(-50deg);
     }
     to {
         transform: rotateZ(20deg);
