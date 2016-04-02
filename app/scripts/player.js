@@ -25,28 +25,27 @@ window.Player = (function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
 		this.pos.rotation = 0;
+		SPEED = 30;	
 	};
 
 	Player.prototype.onFrame = function(delta) {
 
-		if(SPEED < 50) {
-			SPEED += GRAVITY;	
-		}
 		
 		if ((Controls._spaceHit) || (Controls._didClick)) {
 
-			this.pos.y -= delta * (SPEED * 2.5);
+			SPEED = 30;
+			this.pos.y -= delta * (SPEED * 3);
 			
 			if(this.pos.rotation > 0) {
 				this.pos.rotation = -25;
 			}
 
 		} else {
-
+			SPEED += GRAVITY;
 			this.pos.y += delta * SPEED;
 
 			if(this.pos.rotation < 90) {
-				this.pos.rotation += (delta * SPEED * 4);
+				this.pos.rotation += (delta * SPEED * 8);
 			}
 			
 		}
@@ -64,7 +63,7 @@ window.Player = (function() {
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.x < 0 ||
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
-			this.pos.y < 0 ||
+			this.pos.y < -100 ||
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
 			return this.game.gameover();
 		}
