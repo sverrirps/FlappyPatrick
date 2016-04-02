@@ -3,15 +3,6 @@ window.Controls = (function() {
     'use strict';
 
     /**
-     * Key codes we're interested in.
-     */
-    var KEYS = {
-        32: 'space'
-    };
-
-    //var CLICK = false;
-
-    /**
      * A singleton class which abstracts all player input,
      * should hide complexity of dealing with keyboard, mouse
      * and touch devices.
@@ -20,7 +11,7 @@ window.Controls = (function() {
     var Controls = function() {
         this._didJump = false;
         this._didClick = false;
-        this.keys = {};
+        this._spaceHit = false;
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
             .on('keyup', this._onKeyUp.bind(this));
@@ -34,30 +25,22 @@ window.Controls = (function() {
         console.log('in key down');
         // Only jump if space wasn't pressed.
 
-        if (e.keyCode === 32 && !this.keys.space) {
+        if (e.keyCode === 32 && !this._spaceHit) {
             this._didJump = true;
-            console.log("space pressed");
         }
-        
-        //console.log('key pressed code: ' + e.keyCode);
 
         // Remember that this button is down.
-        if (e.keyCode in KEYS) {
-            var keyName = KEYS[e.keyCode];
-            this.keys[keyName] = true;
+        if (e.keyCode == 32) {
+            this._spaceHit = true;
             return false;
         }
-        
     };
 
     Controls.prototype._onKeyUp = function(e) {
-        console.log('in key up');
-        if (e.keyCode in KEYS) {
-            var keyName = KEYS[e.keyCode];
-            this.keys[keyName] = false;
+        if (e.keyCode == 32) {
+            this._spaceHit = false;
             return false;
         }
-        
     };
 
     Controls.prototype._onMouseDown = function(e) {
@@ -70,12 +53,11 @@ window.Controls = (function() {
        this._didClick = false;
     };
 
-
     /**
      * Only answers true once until a key is pressed again.
      */
     Controls.prototype.didJump = function() {
-        console.log('fuck');
+        console.log('in the fucking didJump function!');
         var answer = this._didJump;
         this._didJump = false;
         return answer;
