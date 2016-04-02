@@ -75,7 +75,7 @@
     transform-origin: bottom right;
 
     animation-name: moveColumn;
-    animation-duration: 3s;
+    animation-duration: 7.5s;
     animation-iteration-count: infinite;
     animation-fill-mode: forwards; 
     animation-timing-function: linear;
@@ -83,9 +83,9 @@
 
 @keyframes moveColumn {
     from {
-        transform: translateX(em(1280px));
+        transform: translateX(em(1180px));
     }
     to {
-        transform: translateX(em(-504px));
+        transform: translateX(em(-440px));
     }
 }
