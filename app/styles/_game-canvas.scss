@@ -12,14 +12,20 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    width: em(1024px);
-    height: em(576px);
+    width: em(1000px);
+    height: em(500px);
     margin-left: (em(-1024px) / 2);
     margin-top: (em(-576px) / 2);
+
+    //margin-left: (em(-500px) / 2);
+    //margin-top: (em(-887px) / 2);
 
     // Don't draw outside this box.
     overflow: hidden;
 
     // Some graphics
-    background: red;
+    //background: blue;
+    background-image: url(../images/backgroundOcean.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }

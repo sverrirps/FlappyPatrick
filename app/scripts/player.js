@@ -52,3 +52,4 @@ window.Player = (function() {
 	return Player;
 
 })();
+ 
