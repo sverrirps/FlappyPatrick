@@ -32,6 +32,9 @@ window.Player = (function() {
 
 		
 		if ((Controls._spaceHit) || (Controls._didClick)) {
+			//play sound:
+			var audio = document.getElementsByTagName("audio")[0];
+			audio.play();
 
 			SPEED = 10;
 			this.pos.y -= delta * (SPEED * 2);
