@@ -28,7 +28,7 @@ window.Controls = (function() {
 
         if (e.keyCode === 32 && !this.keys.space) {
             this._didJump = true;
-            console.log("space pressed");
+            console.log('space pressed');
         }
         
         //console.log('key pressed code: ' + e.keyCode);
