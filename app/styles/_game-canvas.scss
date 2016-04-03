@@ -143,6 +143,30 @@
     }
 }
 
+.bubbles2 {
+    height: 300px;
+    width: 400px;
+    margin-left: (em(-100px) / 2);
+
+    transform-origin: top right;
+
+    animation-name: movingBubbles;
+    animation-duration: 23s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-delay: 5s;
+}
+
+@keyframes movingBubbles {
+    from {
+        transform: translateX(em(1480px));
+    }
+    to {
+        transform: translateX(em(-200px));
+    }
+}
+
 .bubble1 {
   height: 40px;
   width: 40px;
