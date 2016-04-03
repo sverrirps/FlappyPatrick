@@ -62,65 +62,6 @@
     height: 5em;
 }
 
-.Moai {
-    position: absolute;
-    bottom: em(-100px);
-    //height: em(10px);
-    background-size: 100%;
-
-
-    // sliding column
-    transform-origin: bottom right;
-
-    animation-name: movePipe;
-    animation-duration: 7.5s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards; 
-    animation-timing-function: linear;
-}
-
-@keyframes movePipe {
-
-
-    from {
-        transform: translateX(em(1180px));
-    }
-    to {
-        transform: translateX(em(-440px));
-    }
-}
-
-.MoaiReverse {
-  position: absolute;
-  top: em(-200px);
-  //background-image: url(../images/sula.png);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  //animation-name: movePipe;
-  //animation-duration: 7.5s;
-  //animation-iteration-count: infinite;
-  //animation-fill-mode: forwards; 
-  //animation-timing-function: linear;
-
-  animation-name: movePipeReverse;
-  animation-duration: 7.5s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: forwards; 
-  animation-timing-function: linear;
-
-}
-
-@keyframes movePipeReverse {
-
-
-    from {
-        transform: translateX(em(1180px)) rotate(180deg);
-    }
-    to {
-        transform: translateX(em(-440px)) rotate(180deg);
-    }
-}
-
 .bubbles {
     height: 300px;
     width: 400px;

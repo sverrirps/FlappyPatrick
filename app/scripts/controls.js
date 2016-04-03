@@ -59,22 +59,7 @@ window.Controls = (function() {
     };
 
     Controls.prototype._onMuteClick = function(e) {
-/*
-        var elem = document.getElementById('Mute');
-        if (elem.value==='Mute') {
-            elem.value = 'Unmute';
-        } else {
-            elem.value = 'Mute';
-        }
-
-        if (this._mute) {
-            this._mute = false;
-        } else {
-            this._mute = true;
-        }
-*/
         console.log(e);
-
 
         var el = document.getElementById('MuteButton');
         if (el.firstChild.data === 'Mute') {

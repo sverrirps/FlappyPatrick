@@ -1,23 +1,24 @@
-.MoaiObstacle{
+.MoaiObstacle {
 	position: absolute;
-	width: em(50px);
+	width: em(500px);
 	height: em(250px);
 	background-image: url(../images/sula.png);
 	background-repeat: no-repeat;
 	background-size: 100%;
-	transform: translateZ(0);
-	background-color: red;
+	//transform: translateZ(0);
+	//background: red;
 }
 
 .MoaiReverse,
 .MoaiReverse2,
-.MoaiReverse3,
-{
+.MoaiReverse3 {
 	@inherit .MoaiObstacle;
+	top: 0;
 }
 
 .Moai,
 .Moai2,
 .Moai3 {
 	@inherit .MoaiObstacle;
+	bottom: 0;
 }
