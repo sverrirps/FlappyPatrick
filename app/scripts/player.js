@@ -35,7 +35,11 @@ window.Player = (function() {
 			//play sound:
 			if (!Controls._mute) {
 				var audio = document.getElementsByTagName('audio')[0];
-				audio.play();
+				if (audio.paused) {
+			        audio.play();
+			    }else{
+			        audio.currentTime = 0;
+			    }
 			}
 
 			SPEED = 10;
