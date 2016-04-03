@@ -56,9 +56,12 @@ window.Game = (function() {
 	Game.prototype.reset = function() {
 		var pipes = document.getElementsByClassName('Pipe')[0];
 		var floor = document.getElementsByClassName('Floor')[0];
+		var pipesReverse = document.getElementsByClassName('PipeReverse')[0];
 
 		pipes.style.WebkitAnimationPlayState = 'initial';
 		pipes.style.animationPlayState = 'initial';
+		pipesReverse.style.WebkitAnimationPlayState = 'initial';
+		pipesReverse.style.animationPlayState = 'initial';
 		floor.style.WebkitAnimationPlayState = 'initial';
 		floor.style.animationPlayState = 'initial';
 
@@ -74,10 +77,13 @@ window.Game = (function() {
 		this.isPlaying = false;
 
 		var pipes = document.getElementsByClassName('Pipe')[0];
+		var pipesReverse = document.getElementsByClassName('PipeReverse')[0];
 		var floor = document.getElementsByClassName('Floor')[0];
 		
 		pipes.style.WebkitAnimationPlayState = 'paused';
 		pipes.style.animationPlayState = 'paused';
+		pipesReverse.style.WebkitAnimationPlayState = 'paused';
+		pipesReverse.style.animationPlayState = 'paused';
 		floor.style.WebkitAnimationPlayState = 'paused';
 		floor.style.animationPlayState = 'paused';
 		
