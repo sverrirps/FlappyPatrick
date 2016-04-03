@@ -54,15 +54,33 @@ window.Game = (function() {
 	 * Resets the state of the game so a new game can be started.
 	 */
 	Game.prototype.reset = function() {
+		var pipes = document.getElementsByClassName('Pipe')[0];
+		var floor = document.getElementsByClassName('Floor')[0];
+
+		pipes.style.WebkitAnimationPlayState = 'initial';
+		pipes.style.animationPlayState = 'initial';
+		floor.style.WebkitAnimationPlayState = 'initial';
+		floor.style.animationPlayState = 'initial';
+
 		this.player.reset();
+
 	};
 
 	/**
 	 * Signals that the game is over.
 	 */
 	Game.prototype.gameover = function() {
+
 		this.isPlaying = false;
 
+		var pipes = document.getElementsByClassName('Pipe')[0];
+		var floor = document.getElementsByClassName('Floor')[0];
+		
+		pipes.style.WebkitAnimationPlayState = 'paused';
+		pipes.style.animationPlayState = 'paused';
+		floor.style.WebkitAnimationPlayState = 'paused';
+		floor.style.animationPlayState = 'paused';
+		
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');
@@ -74,6 +92,7 @@ window.Game = (function() {
 					that.start();
 				});
 	};
+
 
 	/**
 	 * Some shared constants.
