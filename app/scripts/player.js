@@ -36,7 +36,7 @@ window.Player = (function() {
 
 			//play sound:
 			if (!Controls._mute) {
-				var audio = document.getElementsByTagName('audio')[0];
+				var audio = $('.Huh')[0];
 				if (audio.paused) {
 			        audio.play();
 			    }else{
@@ -76,6 +76,16 @@ window.Player = (function() {
 			this.pos.y < -100 ||
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
 			this.playerAlive = false;
+
+			//play gameoversound
+			if (!Controls._mute) {
+				var audio2= $('.Loser')[0];
+				if (audio2.paused) {
+			        audio2.play();
+			    }else{
+			        audio2.currentTime = 0;
+			    }
+			}
 			return this.game.gameover();
 		}
 	};
