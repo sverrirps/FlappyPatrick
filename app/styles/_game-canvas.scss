@@ -89,3 +89,179 @@
         transform: translateX(em(-440px));
     }
 }
+
+.bubbles {
+    height: 300px;
+    width: 400px;
+
+    transform-origin: top right;
+
+    animation-name: movingBubbles;
+    animation-duration: 21s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes movingBubbles {
+    from {
+        transform: translateX(em(1380px));
+    }
+    to {
+        transform: translateX(em(-200px));
+    }
+}
+
+.bubble1 {
+  height: 40px;
+  width: 40px;
+  border: 1px solid #ffff;
+  border-radius: 10000px;
+  background: rgba(255,255,255,0.35);
+  margin-left: (em(10px) / 2);
+  margin-top: (em(-20px) / 2);
+
+  animation: 0.9s mb1 alternate infinite;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+@keyframes mb1 {
+    from {
+        transform: translateY(em(90px));
+    }
+    to {
+        transform: translateY(em(100px));
+    }
+}
+
+.bubble2 {
+  height: 25px;
+  width: 25px;
+  border: 1px solid #ffff;
+  border-radius: 10000px;
+  background: rgba(255,255,255,0.35);
+  margin-left: (em(-70px) / 2);
+  margin-top: (em(-70px) / 2);
+
+  animation: 1.1s mb2 alternate infinite;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+@keyframes mb2 {
+    from {
+        transform: translateY(em(90px));
+    }
+    to {
+        transform: translateY(em(100px));
+    }
+}
+
+.bubble3 {
+  height: 17px;
+  width: 17px;
+  border: 1px solid #ffff;
+  border-radius: 10000px;
+  background: rgba(255,255,255,0.35);
+  margin-left: (em(20px) / 2);
+  margin-top: (em(20px) / 2);
+
+  animation: 1.4s mb3 alternate infinite;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+@keyframes mb3 {
+    from {
+        transform: translateY(em(90px));
+    }
+    to {
+        transform: translateY(em(100px));
+    }
+}
+
+.bubble4 {
+  height: 42px;
+  width: 42px;
+  border: 1px solid #ffff;
+  border-radius: 10000px;
+  background: rgba(255,255,255,0.35);
+  margin-left: (em(-134px) / 2);
+  margin-top: (em(-80px) / 2);
+
+  animation: 1.0s mb4 alternate infinite;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+@keyframes mb4 {
+    from {
+        transform: translateY(em(90px));
+    }
+    to {
+        transform: translateY(em(100px));
+    }
+}
+
+.bubble5 {
+  height: 34px;
+  width: 34px;
+  border: 1px solid #ffff;
+  border-radius: 10000px;
+  background: rgba(255,255,255,0.35);
+  margin-left: (em(-47px) / 2);
+  margin-top: (em(-15px) / 2);
+
+  animation: 1.3s mb5 alternate infinite;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+@keyframes mb5 {
+    from {
+        transform: translateY(em(90px));
+    }
+    to {
+        transform: translateY(em(100px));
+    }
+}
+
+.bubble6 {
+  height: 21px;
+  width: 21px;
+  border: 1px solid #ffff;
+  border-radius: 10000px;
+  background: rgba(255,255,255,0.35);
+  margin-left: (em(-120px) / 2);
+  margin-top: (em(-83px) / 2);
+
+  animation: 1.2s mb6 alternate infinite;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+@keyframes mb6 {
+    from {
+        transform: translateY(em(90px));
+    }
+    to {
+        transform: translateY(em(100px));
+    }
+}
+
+.bubble7 {
+  height: 21px;
+  width: 21px;
+  border: 1px solid #ffff;
+  border-radius: 10000px;
+  background: rgba(255,255,255,0.35);
+  margin-left: (em(-17px) / 2);
+  margin-top: (em(-53px) / 2);
+
+  animation: 0.8s mb7 alternate infinite;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+@keyframes mb7 {
+    from {
+        transform: translateY(em(90px));
+    }
+    to {
+        transform: translateY(em(100px));
+    }
+}
