@@ -20,7 +20,7 @@ window.Controls = (function() {
         $('.GameCanvas')
             .on('mousedown', this._onMouseDown.bind(this))
             .on('mouseup', this._onMouseUp.bind(this));
-        $('.Mute')
+        $('.MuteButton')
             .on('click', this._onMuteClick.bind(this));
     };
 
@@ -59,7 +59,7 @@ window.Controls = (function() {
     };
 
     Controls.prototype._onMuteClick = function(e) {
-
+/*
         var elem = document.getElementById('Mute');
         if (elem.value==='Mute') {
             elem.value = 'Unmute';
@@ -72,7 +72,20 @@ window.Controls = (function() {
         } else {
             this._mute = true;
         }
+*/
         console.log(e);
+
+
+        var el = document.getElementById('MuteButton');
+        if (el.firstChild.data === 'Mute') {
+
+            el.firstChild.data = 'Unmute';
+            this._mute = true;
+        } else {
+
+            el.firstChild.data = 'Mute';
+            this._mute = false;
+        }
     };
 
     /**

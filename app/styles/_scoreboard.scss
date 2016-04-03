@@ -3,16 +3,20 @@
 	position: absolute;
 	left: 50%;
 	top: em(100px);
-	height: em(300px);
-	width: em(400px);
-	margin-left: em(-200px);
+	height: em(900px);
+	width: em(600px);
+	margin-left: em(-300px);
+	margin-top: em(-100px);
 	box-sizing: border-box;
 
-	background: purple;
+	//background: purple;
+	background-image: url(../images/PineappleScoreboard.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
 	text-align: center;
 
 	// Keep it off-screen
-	transform: translate(0, em(-400px));
+	transform: translate(0, em(-600px));
 	transition: transform 0.5s;
 }
 
@@ -24,18 +28,44 @@
 }
 
 .Scoreboard-restart {
-	margin-top: em(200px);
-
 	font-size: inherit;
 	padding: em(4px) em(15px);
-	border: em(2px) solid white;
-	background: none;
+	border: em(2px) solid #AA250A;
+	background: orange;
 	cursor: pointer;
 }
 
 .Scoreboard-restartText {
-	// NOTICE: You'll lose 10% of your score if you don't change this style!
-	font-family: 'Comic Sans MS', serif;
+	font-family: 'Arial', serif;
 	font-size: em(24px);
-	color: white;
+	color: #AA250A;
+}
+
+.MuteButton {
+	font-size: inherit;
+	padding: em(4px) em(15px);
+	border: em(2px) solid #AA250A;
+	background: orange;
+	cursor: pointer;
+	color: #AA250A;
+}
+
+.Score {
+	font-size: 500%;
+	color: White;
+	margin-top: em(60px);
+}
+
+.HighScore {
+	font-size: 300%;
+	color: White;
+	margin-top: em(15px);
+}
+
+.Restart-Div {
+	margin-top: em(20px);
+}
+
+.Mute-Div {
+	margin-top: em(10px);
 }
