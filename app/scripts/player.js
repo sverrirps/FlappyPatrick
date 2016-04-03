@@ -16,6 +16,7 @@ window.Player = (function() {
 		this.el = el;
 		this.game = game;
 		this.pos = { x: 0, y: 0, angle: 0 };
+		this.playerAlive = true;
 	};
 
 	/**
@@ -25,6 +26,7 @@ window.Player = (function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
 		this.pos.angle = 0;
+		this.playerAlive = true;
 		SPEED = 30;
 	};
 
@@ -73,6 +75,7 @@ window.Player = (function() {
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
 			this.pos.y < -100 ||
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+			this.playerAlive = false;
 			return this.game.gameover();
 		}
 	};

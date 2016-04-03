@@ -54,14 +54,14 @@ window.Game = (function() {
 	 * Resets the state of the game so a new game can be started.
 	 */
 	Game.prototype.reset = function() {
-		var pipes = document.getElementsByClassName('Pipe')[0];
+		var moais = document.getElementsByClassName('Moai')[0];
 		var floor = document.getElementsByClassName('Floor')[0];
-		var pipesReverse = document.getElementsByClassName('PipeReverse')[0];
+		var moaiReverse = document.getElementsByClassName('MoaiReverse')[0];
 
-		pipes.style.WebkitAnimationPlayState = 'initial';
-		pipes.style.animationPlayState = 'initial';
-		pipesReverse.style.WebkitAnimationPlayState = 'initial';
-		pipesReverse.style.animationPlayState = 'initial';
+		moais.style.WebkitAnimationPlayState = 'initial';
+		moais.style.animationPlayState = 'initial';
+		moaiReverse.style.WebkitAnimationPlayState = 'initial';
+		moaiReverse.style.animationPlayState = 'initial';
 		floor.style.WebkitAnimationPlayState = 'initial';
 		floor.style.animationPlayState = 'initial';
 
@@ -76,14 +76,14 @@ window.Game = (function() {
 
 		this.isPlaying = false;
 
-		var pipes = document.getElementsByClassName('Pipe')[0];
-		var pipesReverse = document.getElementsByClassName('PipeReverse')[0];
+		var moais = document.getElementsByClassName('Moai')[0];
+		var moaiReverse = document.getElementsByClassName('MoaiReverse')[0];
 		var floor = document.getElementsByClassName('Floor')[0];
 		
-		pipes.style.WebkitAnimationPlayState = 'paused';
-		pipes.style.animationPlayState = 'paused';
-		pipesReverse.style.WebkitAnimationPlayState = 'paused';
-		pipesReverse.style.animationPlayState = 'paused';
+		moais.style.WebkitAnimationPlayState = 'paused';
+		moais.style.animationPlayState = 'paused';
+		moaiReverse.style.WebkitAnimationPlayState = 'paused';
+		moaiReverse.style.animationPlayState = 'paused';
 		floor.style.WebkitAnimationPlayState = 'paused';
 		floor.style.animationPlayState = 'paused';
 		

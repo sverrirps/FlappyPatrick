@@ -27,6 +27,7 @@
 
     transform-origin: top right;
     animation: 0.2s flapWings alternate infinite;
+    transform: translateZ(0);
 }
 
 @keyframes flapWings {
