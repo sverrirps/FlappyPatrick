@@ -51,13 +51,25 @@
 	color: #AA250A;
 }
 
+.ScoreText {
+	font-size: 500%;
+	color: White;
+	margin-top: em(60px);
+}
+
 .Score {
 	font-size: 500%;
 	color: White;
 	margin-top: em(60px);
 }
 
-.HighScore {
+.HighscoreText {
+	font-size: 300%;
+	color: White;
+	margin-top: em(15px);
+}
+
+.Highscore {
 	font-size: 300%;
 	color: White;
 	margin-top: em(15px);

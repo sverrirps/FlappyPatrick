@@ -4,12 +4,11 @@ window.Player = (function() {
 	var Controls = window.Controls;
 
 	// All these constants are in em's, multiply by 10 pixels
-	// for 1024x576px canvas.
+	// for 1280x720px canvas.
 	var SPEED = 30; // * 10 pixels per second
 	var PLAYERWIDTH = 10;
 	var PLAYERHEIGHT = 11.5;
 	var MOAISWIDTH = 12.8;
-	//var MOAISHEIGHT = 34.6;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
 	var GRAVITY = 1.0;
@@ -19,6 +18,8 @@ window.Player = (function() {
 		this.game = game;
 		this.pos = { x: 0, y: 0, angle: 0 };
 		this.playerAlive = true;
+		this.highScore = 0;
+		document.getElementById('Highscore').innerHTML = this.highScore;
 	};
 
 	/**
@@ -29,18 +30,20 @@ window.Player = (function() {
 		this.pos.y = INITIAL_POSITION_Y;
 		this.pos.angle = 0;
 		this.playerAlive = true;
+		this.nextMaoiNr = 0;
+		this.currentScore = 0;
 		SPEED = 30;
+		document.getElementById('Score').innerHTML = this.currentScore;
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		
 		if ((Controls._spaceHit) || (Controls._didClick)) {
 
 			//play sound:
 			if (!Controls._mute) {
 				var audio = $('.Huh')[0];
 				if (audio.paused) {
-			        //audio.play();
+			        audio.play();
 			    }else{
 			        audio.currentTime = 0;
 			    }
@@ -95,37 +98,25 @@ window.Player = (function() {
 			if ((this.pos.x + PLAYERWIDTH >= this.game.moai.moais[i].upperMoai.pos.x) &&
 				(this.pos.x + PLAYERWIDTH < this.game.moai.moais[i].upperMoai.pos.x + MOAISWIDTH + PLAYERWIDTH)) {
 
-	/*			//Check for y-ais collision
-				console.log('-------------------------');
-				console.log('this.game.moai.moais[i].upperMoai.pos.y: ' + this.game.moai.moais[i].upperMoai.pos.y);
-				console.log('this.game.moai.moais[i].lowerMoai.pos.y: ' + this.game.moai.moais[i].lowerMoai.pos.y);
-				console.log('this.pos.y: ' + this.pos.y);
-				console.log('PLAYERHEIGHT: ' + PLAYERHEIGHT);
-				console.log('WORLD_HEIGHT: ' + this.game.WORLD_HEIGHT);
-				console.log('this.pos.y + PLAYERHEIGHT: ' + (this.pos.y + PLAYERHEIGHT));
-				console.log('this.game.moai.el[i * 2].style.height: ' + parseFloat(this.game.moai.el[i * 2].style.height));
-				console.log('this.game.WORLD_HEIGHT - parseFloat(this.game.moai.el[i * 2 + 1].style.height): ' +
-					(this.game.WORLD_HEIGHT - parseFloat(this.game.moai.el[i * 2 + 1].style.height)));
-	*/
-				console.log('player.js [i * 2].style.height: ' + parseFloat(this.game.moai.el[i * 2].style.height) + ', i: ' + i);
-				console.log('player.js [i * 2 + 1].height: ' + parseFloat(this.game.moai.el[i * 2 + 1].style.height));
-
 				var lower = parseFloat(this.game.moai.el[i * 2].style.height);
 				var higher = this.game.WORLD_HEIGHT - parseFloat(this.game.moai.el[i * 2 + 1].style.height);
-				console.log('lower: ' + lower);
-				console.log('higher: ' + higher);
 
-
+				//Check for y-ais collision
 				if ((this.pos.y <= lower) ||
 					((this.pos.y + PLAYERHEIGHT) >= higher)) {
 					console.log('Y collision');
 
-				//if ((this.pos.y < (this.game.moai.moais[i].lowerMoai.pos.y + MOAISHEIGHT)) ||
-				//	((this.pos.y + PLAYERHEIGHT) > this.game.moai.moais[i].upperMoai.pos.y)) {
-
 					this.playerAlive = false;
 					this.playLoserSound();
 					return this.game.gameover();
+				} else if (i === this.nextMaoiNr) {
+					this.currentScore++;
+					document.getElementById('Score').innerHTML = this.currentScore;
+					if (this.currentScore > this.highScore) {
+						this.highScore = this.currentScore;
+						document.getElementById('Highscore').innerHTML = this.highScore;
+					}
+					this.nextMaoiNr = (this.nextMaoiNr + 1) % this.game.moai.moais.length;
 				}
 			}
 		}
@@ -136,7 +127,7 @@ window.Player = (function() {
 		if (!Controls._mute) {
 			var audio2= $('.Loser')[0];
 			if (audio2.paused) {
-		        //audio2.play();
+		        audio2.play();
 		    }else{
 		        audio2.currentTime = 0;
 		    }

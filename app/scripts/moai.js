@@ -50,10 +50,6 @@ window.Moai = (function() {
 
 			this.el[i * 2].style.height = randomHeight + 'em';
 			this.el[i * 2 + 1].style.height = (this.game.WORLD_HEIGHT - randomHeight - CLEARANCE) + 'em';
-			//this.moais[i].upperMoai.pos.y = this.game.WORLD_HEIGHT - 50; //randomHeight;
-			//this.moais[i].lowerMoai.pos.y = 40; //this.game.WORLD_HEIGHT - randomHeight - CLEARANCE;
-			console.log('moai.js [i * 2].style.height: ' + this.el[i * 2].style.height + ', i: ' + i);
-			console.log('moai.js seinna: ' + this.el[i * 2 + 1].style.height);
 		}
 	};
 
@@ -68,23 +64,17 @@ window.Moai = (function() {
 				//Find new random height 
 				//Get random integer between 1 and 10 (Math.random() * (max - min + 1) + min;)
 				var randomHeight = Math.floor(Math.random() * (34 - 9 + 1)) + 9;
-				console.log ('randomHeight: ' + randomHeight);
 
 				//TODO set height
 				this.el[i * 2].style.height = randomHeight + 'em';
 				this.el[i * 2 + 1].style.height = (this.game.WORLD_HEIGHT - randomHeight - CLEARANCE) + 'em';
-				//this.moais[i].upperMoai.pos.y = this.game.WORLD_HEIGHT - 50;
-				//this.moais[i].lowerMoai.pos.y = 20;
 
 				this.moais[i].upperMoai.pos.x = this.game.WORLD_WIDTH * 1.2 - MOAIWIDTH;
 				this.moais[i].lowerMoai.pos.x = this.game.WORLD_WIDTH * 1.2 - MOAIWIDTH;
 			}
 		}
-
 		
-
-		// Update UI	
-					
+		// Update UI				
 		for (var j = 0; j < this.moais.length; j++) {
 
 			this.el[j * 2].style.transform = 'translate3d(' +
@@ -117,50 +107,6 @@ window.Moai = (function() {
 				this.moais[j].lowerMoai.pos.y + 'em, 0em) rotate(' +
 				this.moais[j].lowerMoai.pos.angle + 'deg)';
 		}
-		
-/*
-		for (var j = 0; j < this.moais.length; j++) {
-			console.log('=====================');
-			console.log('inni translate lykkjunni + j: ' + j);
-			console.log('upperMoai.pos.x: ' + this.moais[j].upperMoai.pos.x);
-			console.log('upperMoai.pos.y: ' + this.moais[j].upperMoai.pos.y);
-			console.log('upperMoai.pos.angle: ' + this.moais[j].upperMoai.pos.angle);
-			console.log('lowerMoai.pos.x: ' + this.moais[j].lowerMoai.pos.x);
-			console.log('lowerMoai.pos.y: ' + this.moais[j].lowerMoai.pos.y);
-			console.log('lowerMoai.pos.angle: ' + this.moais[j].lowerMoai.pos.angle);
-			console.log('======================');
-
-			this.el.css('transform', 'translateZ(0) translate(' +
-				this.moais[j].upperMoai.pos.x + 'em, ' +
-				this.moais[j].upperMoai.pos.y + 'em) rotate(' +
-				this.moais[j].upperMoai.pos.angle + 'deg)');
-
-			this.el.css('-moz-transform', 'translateZ(0) translate(' +
-				this.moais[j].upperMoai.pos.x + 'em, ' +
-				this.moais[j].upperMoai.pos.y + 'em) rotate(' +
-				this.moais[j].upperMoai.pos.angle + 'deg)');
-
-			this.el.css('-webkit-transform', 'translateZ(0) translate(' +
-				this.moais[j].upperMoai.pos.x + 'em, ' +
-				this.moais[j].upperMoai.pos.y + 'em) rotate(' +
-				this.moais[j].upperMoai.pos.angle + 'deg)');
-		
-			this.el.css('transform', 'translateZ(0) translate(' +
-				this.moais[j].lowerMoai.pos.x + 'em, '+
-				this.moais[j].lowerMoai.pos.y + 'em) rotate(' +
-				this.moais[j].lowerMoai.pos.angle + 'deg)');
-
-			this.el.css('-moz-transform', 'translateZ(0) translate(' +
-				this.moais[j].lowerMoai.pos.x + 'em, ' +
-				this.moais[j].lowerMoai.pos.y + 'em) rotate(' +
-				this.moais[j].lowerMoai.pos.angle + 'deg)');
-
-			this.el.css('-webkit-transform', 'translateZ(0) translate(' +
-				this.moais[j].lowerMoai.pos.x + 'em, '+
-				this.moais[j].lowerMoai.pos.y + 'em) rotate(' +
-				this.moais[j].lowerMoai.pos.angle + 'deg)');
-		}
-		*/
 	};
 
 	return Moai;
