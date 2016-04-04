@@ -2,6 +2,7 @@
 .Player {
     // Absolutely position entities at 0,0 and use transform to
     // move it around.
+    font-size: $base-font-size;
     position: absolute;
     top: 0;
     left: 0;
@@ -27,7 +28,10 @@
 
     transform-origin: top right;
     animation: 0.2s flapWings alternate infinite;
-    transform: translateZ(0);
+
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
 }
 
 @keyframes flapWings {

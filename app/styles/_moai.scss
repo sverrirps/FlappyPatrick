@@ -1,0 +1,27 @@
+.MoaiObstacle {
+	font-size: $base-font-size;
+	position: absolute;
+	width: em(128px);
+	height: em(346px);
+	background-image: url(../images/sulaFinal.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+}
+
+.MoaiReverse,
+.MoaiReverse2,
+.MoaiReverse3 {
+	@inherit .MoaiObstacle;
+	top: 0;
+}
+
+.Moai,
+.Moai2,
+.Moai3 {
+	@inherit .MoaiObstacle;
+	bottom: 0;
+}

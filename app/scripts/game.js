@@ -10,6 +10,7 @@ window.Game = (function() {
 	var Game = function(el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
+		this.moai = new window.Moai(this.el.find('.MoaiObstacle'), this);
 		this.isPlaying = false;
 
 		// Cache a bound onFrame since we need it each frame.
@@ -33,6 +34,7 @@ window.Game = (function() {
 
 		// Update game entities.
 		this.player.onFrame(delta);
+		this.moai.onFrame(delta);
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
@@ -54,19 +56,13 @@ window.Game = (function() {
 	 * Resets the state of the game so a new game can be started.
 	 */
 	Game.prototype.reset = function() {
-		var moais = document.getElementsByClassName('Moai')[0];
 		var floor = document.getElementsByClassName('Floor')[0];
-		var moaiReverse = document.getElementsByClassName('MoaiReverse')[0];
 
-		moais.style.WebkitAnimationPlayState = 'initial';
-		moais.style.animationPlayState = 'initial';
-		moaiReverse.style.WebkitAnimationPlayState = 'initial';
-		moaiReverse.style.animationPlayState = 'initial';
 		floor.style.WebkitAnimationPlayState = 'initial';
 		floor.style.animationPlayState = 'initial';
 
 		this.player.reset();
-
+		this.moai.reset();
 	};
 
 	/**
@@ -76,14 +72,8 @@ window.Game = (function() {
 
 		this.isPlaying = false;
 
-		var moais = document.getElementsByClassName('Moai')[0];
-		var moaiReverse = document.getElementsByClassName('MoaiReverse')[0];
 		var floor = document.getElementsByClassName('Floor')[0];
 		
-		moais.style.WebkitAnimationPlayState = 'paused';
-		moais.style.animationPlayState = 'paused';
-		moaiReverse.style.WebkitAnimationPlayState = 'paused';
-		moaiReverse.style.animationPlayState = 'paused';
 		floor.style.WebkitAnimationPlayState = 'paused';
 		floor.style.animationPlayState = 'paused';
 		
@@ -103,8 +93,8 @@ window.Game = (function() {
 	/**
 	 * Some shared constants.
 	 */
-	Game.prototype.WORLD_WIDTH = 100;
-	Game.prototype.WORLD_HEIGHT = 60;
+	Game.prototype.WORLD_WIDTH = 102.4;
+	Game.prototype.WORLD_HEIGHT = 57.6;
 
 	return Game;
 })();
