@@ -8,7 +8,7 @@ window.Player = (function() {
 	var SPEED = 30; // * 10 pixels per second
 	var PLAYERWIDTH = 10;
 	var PLAYERHEIGHT = 11.5;
-	//var MOAISWIDTH = 12.8;
+	var MOAISWIDTH = 12.8;
 	//var MOAISHEIGHT = 34.6;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
@@ -93,7 +93,7 @@ window.Player = (function() {
 		for (var i = 0; i < this.game.moai.moais.length; i++) {
 			//Check for x-ais collision
 			if ((this.pos.x + PLAYERWIDTH >= this.game.moai.moais[i].upperMoai.pos.x) &&
-				(this.pos.x + PLAYERWIDTH < this.game.moai.moais[i].upperMoai.pos.x + PLAYERWIDTH)) {
+				(this.pos.x + PLAYERWIDTH < this.game.moai.moais[i].upperMoai.pos.x + MOAISWIDTH + PLAYERWIDTH)) {
 
 	/*			//Check for y-ais collision
 				console.log('-------------------------');
