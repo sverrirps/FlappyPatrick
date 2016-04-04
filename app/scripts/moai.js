@@ -11,18 +11,18 @@ window.Moai = (function() {
 		this.moais = [
 			{
 				name: 'moai1',
-				upperMoai: new MakeMoai(this.el.find('.Moai'), 200, 0, 0),
-				lowerMoai: new MakeMoai(this.el.find('.MoaiReverse'), 200, 0, 45)
+				upperMoai: new MakeMoai(this.el.find('.Moai'), this.game.WORLD_WIDTH, 0, 180),
+				lowerMoai: new MakeMoai(this.el.find('.MoaiReverse'), this.game.WORLD_WIDTH, 0, 0)
 			},
 			{
 				name: 'moai2',
-				upperMoai: new MakeMoai(this.el.find('.Moai2'), 400, 0, 0),
-				lowerMoai: new MakeMoai(this.el.find('.MoaiReverse2'), 400, 0, 0)
+				upperMoai: new MakeMoai(this.el.find('.Moai2'), this.game.WORLD_WIDTH * 1.4, 0, 180),
+				lowerMoai: new MakeMoai(this.el.find('.MoaiReverse2'), this.game.WORLD_WIDTH *1.4, 0, 0)
 			},
 			{
 				name: 'moai3',
-				upperMoai: new MakeMoai(this.el.find('.Moai3'), 600, 0, 0),
-				lowerMoai: new MakeMoai(this.el.find('.MoaiReverse3'), 600, 0, 90)
+				upperMoai: new MakeMoai(this.el.find('.Moai3'), this.game.WORLD_WIDTH * 1.8, 0, 180),
+				lowerMoai: new MakeMoai(this.el.find('.MoaiReverse3'), this.game.WORLD_WIDTH * 1.8, 0, 0)
 			}
 		];
 		console.log(this.moais[0].lowerMoai.pos.angle);
@@ -50,6 +50,7 @@ window.Moai = (function() {
 		//if (Player.playerAlive) {
 			//console.log('onframe maoi playerAlive');
 			//Move moais
+		SPEED = 21;
 		for (var i = 0; i < this.moais.length; i++) {
 			this.moais[i].upperMoai.pos.x -= delta * SPEED;
 			this.moais[i].lowerMoai.pos.x -= delta * SPEED;
