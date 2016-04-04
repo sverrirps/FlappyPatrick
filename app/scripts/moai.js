@@ -61,17 +61,35 @@ window.Moai = (function() {
 								
 		for (var j = 0; j < this.moais.length; j++) {
 
-			this.el[j * 2].style.transform = 'translate3d(' + this.moais[j].upperMoai.pos.x + 'em, ' + this.moais[j].upperMoai.pos.y + 'em, 0em) rotate(' + this.moais[j].upperMoai.pos.angle + 'deg)';
+			this.el[j * 2].style.transform = 'translate3d(' +
+				this.moais[j].upperMoai.pos.x + 'em, ' +
+				this.moais[j].upperMoai.pos.y + 'em, 0em) rotate(' +
+				this.moais[j].upperMoai.pos.angle + 'deg)';
 
-			this.el[j * 2].style.MozTransform = 'translate3d(' + this.moais[j].upperMoai.pos.x + 'em, ' + this.moais[j].upperMoai.pos.y + 'em, 0em) rotate(' + this.moais[j].upperMoai.pos.angle + 'deg)';
+			this.el[j * 2].style.MozTransform = 'translate3d(' +
+				this.moais[j].upperMoai.pos.x + 'em, ' +
+				this.moais[j].upperMoai.pos.y + 'em, 0em) rotate(' +
+				this.moais[j].upperMoai.pos.angle + 'deg)';
 
-			this.el[j * 2].style.webkitTransform = 'translate3d(' + this.moais[j].upperMoai.pos.x + 'em, ' + this.moais[j].upperMoai.pos.y + 'em, 0em) rotate(' + this.moais[j].upperMoai.pos.angle + 'deg)';
+			this.el[j * 2].style.webkitTransform = 'translate3d('+
+				this.moais[j].upperMoai.pos.x + 'em, ' +
+				this.moais[j].upperMoai.pos.y + 'em, 0em) rotate(' +
+				this.moais[j].upperMoai.pos.angle + 'deg)';
 		
-			this.el[j * 2 + 1].style.transform = 'translate3d(' + this.moais[j].lowerMoai.pos.x + 'em, ' + this.moais[j].lowerMoai.pos.y + 'em, 0em) rotate(' + this.moais[j].lowerMoai.pos.angle + 'deg)';
+			this.el[j * 2 + 1].style.transform = 'translate3d(' +
+				this.moais[j].lowerMoai.pos.x + 'em, '+
+				this.moais[j].lowerMoai.pos.y + 'em, 0em) rotate(' +
+				this.moais[j].lowerMoai.pos.angle + 'deg)';
 
-			this.el[j * 2 + 1].style.MozTransform = 'translate3d(' + this.moais[j].lowerMoai.pos.x + 'em, ' + this.moais[j].lowerMoai.pos.y + 'em, 0em) rotate(' + this.moais[j].lowerMoai.pos.angle + 'deg)';
+			this.el[j * 2 + 1].style.MozTransform = 'translate3d(' +
+				this.moais[j].lowerMoai.pos.x + 'em, ' +
+				this.moais[j].lowerMoai.pos.y + 'em, 0em) rotate(' +
+				this.moais[j].lowerMoai.pos.angle + 'deg)';
 
-			this.el[j * 2 + 1].style.webkitTransform = 'translate3d(' + this.moais[j].lowerMoai.pos.x + 'em, ' + this.moais[j].lowerMoai.pos.y + 'em, 0em) rotate(' + this.moais[j].lowerMoai.pos.angle + 'deg)';
+			this.el[j * 2 + 1].style.webkitTransform = 'translate3d(' +
+				this.moais[j].lowerMoai.pos.x + 'em, '+
+				this.moais[j].lowerMoai.pos.y + 'em, 0em) rotate(' +
+				this.moais[j].lowerMoai.pos.angle + 'deg)';
 		}
 
 	};
