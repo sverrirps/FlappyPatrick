@@ -16,12 +16,12 @@
 .MoaiReverse2,
 .MoaiReverse3 {
 	@inherit .MoaiObstacle;
-	top: 0;
+	bottom: 0;
 }
 
 .Moai,
 .Moai2,
 .Moai3 {
 	@inherit .MoaiObstacle;
-	bottom: 0;
+	top: 0;
 }

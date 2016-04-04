@@ -38,7 +38,7 @@ window.Player = (function() {
 			if (!Controls._mute) {
 				var audio = $('.Huh')[0];
 				if (audio.paused) {
-			        audio.play();
+			        //audio.play();
 			    }else{
 			        audio.currentTime = 0;
 			    }
@@ -81,7 +81,7 @@ window.Player = (function() {
 			if (!Controls._mute) {
 				var audio2= $('.Loser')[0];
 				if (audio2.paused) {
-			        audio2.play();
+			        //audio2.play();
 			    }else{
 			        audio2.currentTime = 0;
 			    }
