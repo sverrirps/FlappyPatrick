@@ -6,8 +6,10 @@ window.Player = (function() {
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
 	var SPEED = 30; // * 10 pixels per second
-	var WIDTH = 5;
-	var HEIGHT = 5;
+	var PLAYERWIDTH = 10;
+	var PLAYERHEIGHT = 11.5;
+	//var MOAISWIDTH = 12.8;
+	//var MOAISHEIGHT = 34.6;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
 	var GRAVITY = 1;
@@ -61,32 +63,82 @@ window.Player = (function() {
 		}
 
 		this.checkCollisionWithBounds();
+		this.checkCollisionWithMoais();
 
 		// Update UI
-		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.pos.angle + 'deg)');
+		this.el.css('transform', 'translateZ(0) translate(' +
+			this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.pos.angle + 'deg)');
 
-		this.el.css('-moz-transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.pos.angle + 'deg)');
+		this.el.css('-moz-transform', 'translateZ(0) translate(' +
+			this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.pos.angle + 'deg)');
 
-		this.el.css('-webkit-transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.pos.angle + 'deg)');
+		this.el.css('-webkit-transform', 'translateZ(0) translate(' +
+			this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.pos.angle + 'deg)');
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.x < 0 ||
-			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
+			this.pos.x + PLAYERWIDTH > this.game.WORLD_WIDTH ||
 			this.pos.y < -100 ||
-			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+			this.pos.y + PLAYERHEIGHT > this.game.WORLD_HEIGHT ) {
+			
 			this.playerAlive = false;
-
-			//play gameoversound
-			if (!Controls._mute) {
-				var audio2= $('.Loser')[0];
-				if (audio2.paused) {
-			        //audio2.play();
-			    }else{
-			        audio2.currentTime = 0;
-			    }
-			}
+			this.playLoserSound();
 			return this.game.gameover();
+		}
+	};
+
+	Player.prototype.checkCollisionWithMoais = function() {
+		for (var i = 0; i < this.game.moai.moais.length; i++) {
+			//Check for x-ais collision
+			if ((this.pos.x + PLAYERWIDTH >= this.game.moai.moais[i].upperMoai.pos.x) &&
+				(this.pos.x + PLAYERWIDTH < this.game.moai.moais[i].upperMoai.pos.x + PLAYERWIDTH)) {
+
+	/*			//Check for y-ais collision
+				console.log('-------------------------');
+				console.log('this.game.moai.moais[i].upperMoai.pos.y: ' + this.game.moai.moais[i].upperMoai.pos.y);
+				console.log('this.game.moai.moais[i].lowerMoai.pos.y: ' + this.game.moai.moais[i].lowerMoai.pos.y);
+				console.log('this.pos.y: ' + this.pos.y);
+				console.log('PLAYERHEIGHT: ' + PLAYERHEIGHT);
+				console.log('WORLD_HEIGHT: ' + this.game.WORLD_HEIGHT);
+				console.log('this.pos.y + PLAYERHEIGHT: ' + (this.pos.y + PLAYERHEIGHT));
+				console.log('this.game.moai.el[i * 2].style.height: ' + parseFloat(this.game.moai.el[i * 2].style.height));
+				console.log('this.game.WORLD_HEIGHT - parseFloat(this.game.moai.el[i * 2 + 1].style.height): ' +
+					(this.game.WORLD_HEIGHT - parseFloat(this.game.moai.el[i * 2 + 1].style.height)));
+	*/
+				console.log('player.js [i * 2].style.height: ' + parseFloat(this.game.moai.el[i * 2].style.height) + ', i: ' + i);
+				console.log('player.js [i * 2 + 1].height: ' + parseFloat(this.game.moai.el[i * 2 + 1].style.height));
+
+				var shit = parseFloat(this.game.moai.el[i * 2].style.height);
+				var fuck = this.game.WORLD_HEIGHT - parseFloat(this.game.moai.el[i * 2 + 1].style.height);
+				console.log('shit: ' + shit);
+				console.log('fuck: ' + fuck);
+
+
+				if ((this.pos.y <= shit) ||
+					((this.pos.y + PLAYERHEIGHT) >= fuck)) {
+					console.log('Y collision');
+
+				//if ((this.pos.y < (this.game.moai.moais[i].lowerMoai.pos.y + MOAISHEIGHT)) ||
+				//	((this.pos.y + PLAYERHEIGHT) > this.game.moai.moais[i].upperMoai.pos.y)) {
+
+					this.playerAlive = false;
+					this.playLoserSound();
+					return this.game.gameover();
+				}
+			}
+		}
+	};
+
+	Player.prototype.playLoserSound = function() {
+		//play gameoversound
+		if (!Controls._mute) {
+			var audio2= $('.Loser')[0];
+			if (audio2.paused) {
+		        //audio2.play();
+		    }else{
+		        audio2.currentTime = 0;
+		    }
 		}
 	};
 
