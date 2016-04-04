@@ -1,12 +1,16 @@
 .MoaiObstacle {
+	font-size: $base-font-size;
 	position: absolute;
 	width: em(500px);
 	height: em(250px);
+	left: 0;
 	background-image: url(../images/sula.png);
 	background-repeat: no-repeat;
 	background-size: 100%;
-	//transform: translateZ(0);
-	//background: red;
+	
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
 }
 
 .MoaiReverse,
