@@ -49,10 +49,10 @@
 
 @keyframes slideFloor {
     from {
-        transform: translateX(0);
+        transform: translateZ(0) translateX(0);
     }
     to {
-        transform: translateX(em(-54px));
+        transform: translateZ(0) translateX(em(-54px));
     }
 }
 
@@ -77,10 +77,10 @@
 
 @keyframes movingBubbles {
     from {
-        transform: translateX(em(1380px));
+        transform: translateZ(0) translateX(em(1380px));
     }
     to {
-        transform: translateX(em(-200px));
+        transform: translateZ(0) translateX(em(-200px));
     }
 }
 
@@ -101,10 +101,10 @@
 
 @keyframes movingBubbles {
     from {
-        transform: translateX(em(1480px));
+        transform: translateZ(0) translateX(em(1480px));
     }
     to {
-        transform: translateX(em(-200px));
+        transform: translateZ(0) translateX(em(-200px));
     }
 }
 
@@ -123,10 +123,10 @@
 
 @keyframes mb1 {
     from {
-        transform: translateY(em(90px));
+        transform: translateZ(0) translateY(em(90px));
     }
     to {
-        transform: translateY(em(100px));
+        transform: translateZ(0) translateY(em(100px));
     }
 }
 
@@ -145,10 +145,10 @@
 
 @keyframes mb2 {
     from {
-        transform: translateY(em(90px));
+        transform: translateZ(0) translateY(em(90px));
     }
     to {
-        transform: translateY(em(100px));
+        transform: translateZ(0) translateY(em(100px));
     }
 }
 
@@ -167,10 +167,10 @@
 
 @keyframes mb3 {
     from {
-        transform: translateY(em(90px));
+        transform: translateZ(0) translateY(em(90px));
     }
     to {
-        transform: translateY(em(100px));
+        transform: translateZ(0) translateY(em(100px));
     }
 }
 
@@ -189,10 +189,10 @@
 
 @keyframes mb4 {
     from {
-        transform: translateY(em(90px));
+        transform: translateZ(0) translateY(em(90px));
     }
     to {
-        transform: translateY(em(100px));
+        transform: translateZ(0) translateY(em(100px));
     }
 }
 
@@ -211,10 +211,10 @@
 
 @keyframes mb5 {
     from {
-        transform: translateY(em(90px));
+        transform: translateZ(0) translateY(em(90px));
     }
     to {
-        transform: translateY(em(100px));
+        transform: translateZ(0) translateY(em(100px));
     }
 }
 
@@ -233,10 +233,10 @@
 
 @keyframes mb6 {
     from {
-        transform: translateY(em(90px));
+        transform: translateZ(0) translateY(em(90px));
     }
     to {
-        transform: translateY(em(100px));
+        transform: translateZ(0) translateY(em(100px));
     }
 }
 
@@ -255,9 +255,9 @@
 
 @keyframes mb7 {
     from {
-        transform: translateY(em(90px));
+        transform: translateZ(0) translateY(em(90px));
     }
     to {
-        transform: translateY(em(100px));
+        transform: translateZ(0) translateY(em(100px));
     }
 }
