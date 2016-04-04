@@ -80,7 +80,7 @@ window.Player = (function() {
 		if (this.pos.x < 0 ||
 			this.pos.x + PLAYERWIDTH > this.game.WORLD_WIDTH ||
 			this.pos.y < -100 ||
-			this.pos.y + PLAYERHEIGHT > this.game.WORLD_HEIGHT ) {
+			this.pos.y + PLAYERHEIGHT > this.game.WORLD_HEIGHT - 7) {
 			
 			this.playerAlive = false;
 			this.playLoserSound();
@@ -109,14 +109,14 @@ window.Player = (function() {
 				console.log('player.js [i * 2].style.height: ' + parseFloat(this.game.moai.el[i * 2].style.height) + ', i: ' + i);
 				console.log('player.js [i * 2 + 1].height: ' + parseFloat(this.game.moai.el[i * 2 + 1].style.height));
 
-				var shit = parseFloat(this.game.moai.el[i * 2].style.height);
-				var fuck = this.game.WORLD_HEIGHT - parseFloat(this.game.moai.el[i * 2 + 1].style.height);
-				console.log('shit: ' + shit);
-				console.log('fuck: ' + fuck);
+				var lower = parseFloat(this.game.moai.el[i * 2].style.height);
+				var higher = this.game.WORLD_HEIGHT - parseFloat(this.game.moai.el[i * 2 + 1].style.height);
+				console.log('lower: ' + lower);
+				console.log('higher: ' + higher);
 
 
-				if ((this.pos.y <= shit) ||
-					((this.pos.y + PLAYERHEIGHT) >= fuck)) {
+				if ((this.pos.y <= lower) ||
+					((this.pos.y + PLAYERHEIGHT) >= higher)) {
 					console.log('Y collision');
 
 				//if ((this.pos.y < (this.game.moai.moais[i].lowerMoai.pos.y + MOAISHEIGHT)) ||
