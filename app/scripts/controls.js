@@ -1,4 +1,4 @@
-
+    
 window.Controls = (function() {
     'use strict';
 
@@ -18,8 +18,8 @@ window.Controls = (function() {
             .on('keyup', this._onKeyUp.bind(this));
         
         $('.GameCanvas')
-            .on('mousedown', this._onMouseDown.bind(this))
-            .on('mouseup', this._onMouseUp.bind(this));
+            .on('mousedown touchstart', this._onMouseDown.bind(this))
+            .on('mouseup touchend', this._onMouseUp.bind(this));
         $('.MuteButton')
             .on('click', this._onMuteClick.bind(this));
     };
