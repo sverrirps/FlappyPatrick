@@ -12,7 +12,7 @@ window.Player = (function() {
 	//var MOAISHEIGHT = 34.6;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
-	var GRAVITY = 1;
+	var GRAVITY = 1.0;
 
 	var Player = function(el, game) {
 		this.el = el;
