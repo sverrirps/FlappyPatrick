@@ -4,6 +4,7 @@ window.Moai = (function() {
 	//var Player = window.Player;
 	var SPEED = 10;
 	var MOAIWIDTH = 12.8;
+	var CLEARANCE = 10;
 
 	var Moai = function(el, game) {
 		this.el = el;
@@ -42,6 +43,9 @@ window.Moai = (function() {
 		for (var i = 0; i < this.moais.length; i++) {
 			this.moais[i].upperMoai.pos.x = this.game.WORLD_WIDTH + (4 * i * this.game.WORLD_WIDTH / 10);
 			this.moais[i].lowerMoai.pos.x = this.game.WORLD_WIDTH + (4 * i * this.game.WORLD_WIDTH / 10);
+			//var randomHeight = Math.floor(Math.random() * (50 - 20 + 1)) + 20;
+			//this.el[i * 2].style.height = randomHeight + 'em';
+			//this.el[i * 2 + 1].style.height = (this.game.WORLD_WIDTH - randomHeight - CLEARANCE) + 'em';
 		}
 	};
 
@@ -55,19 +59,16 @@ window.Moai = (function() {
 			if (this.moais[i].upperMoai.pos.x + MOAIWIDTH < 0) {
 				//Find new random height 
 				//Get random integer between 1 and 10 (Math.random() * (max - min + 1) + min;)
-				var randomHeight = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
+				var randomHeight = Math.floor(Math.random() * (43 - 19 + 1)) + 19;
+				console.log ('randomHeight: ' + randomHeight);
 
 				//TODO set height
-
-
+				this.el[i * 2].style.height = randomHeight + 'em';
+				this.el[i * 2 + 1].style.height = (this.game.WORLD_HEIGHT - randomHeight - CLEARANCE) + 'em';
 
 				this.moais[i].upperMoai.pos.x = this.game.WORLD_WIDTH * 1.2 - MOAIWIDTH;
 				this.moais[i].lowerMoai.pos.x = this.game.WORLD_WIDTH * 1.2 - MOAIWIDTH;
 			}
-		}
-
-		for (var k = 0; k < this.moais.length; k++) {
-			
 		}
 
 		
