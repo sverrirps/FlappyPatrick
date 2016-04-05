@@ -10,7 +10,7 @@ window.Game = (function() {
 	var Game = function(el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
-		this.moai = new window.Moai(this.el.find('.MoaiObstacle'), this);
+		this.moai = new window.Moai(this.el.find('.MoaiObstacle'), this, this.player);
 		this.isPlaying = false;
 
 		// Cache a bound onFrame since we need it each frame.
