@@ -62,14 +62,22 @@ window.Controls = (function() {
         console.log(e);
 
         var el = document.getElementById('MuteButton');
+        //get audio elements
+        var oceanSound = $('.Ocean')[0];
+        var loserSound = $('.Loser')[0];
         if (el.firstChild.data === 'Mute') {
 
             el.firstChild.data = 'Unmute';
             this._mute = true;
+            //mute ocean sound:
+            oceanSound.muted = true;
+            loserSound.muted = true;
         } else {
 
             el.firstChild.data = 'Mute';
             this._mute = false;
+            oceanSound.muted = false;
+            loserSound.muted = false;
         }
     };
 

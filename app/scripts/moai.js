@@ -55,7 +55,6 @@ window.Moai = (function() {
 
 	Moai.prototype.onFrame = function(delta){
 		//Move moais
-		SPEED = 21;
 		for (var i = 0; i < this.moais.length; i++) {
 			this.moais[i].upperMoai.pos.x -= delta * SPEED;
 			this.moais[i].lowerMoai.pos.x -= delta * SPEED;

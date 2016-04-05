@@ -38,6 +38,7 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
+
 		if ((Controls._spaceHit) || (Controls._didClick)) {
 
 			//play sound:
@@ -49,6 +50,7 @@ window.Player = (function() {
 			        audio.currentTime = 0;
 			    }
 			}
+			
 
 			SPEED = 10;
 			this.pos.y -= delta * (SPEED * 10);
