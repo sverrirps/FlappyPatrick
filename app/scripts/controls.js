@@ -10,8 +10,8 @@ window.Controls = (function() {
      */
     var Controls = function() {
         this._didJump = false;
-        this._didClick = false;
-        this._spaceHit = false;
+        this._didSwim = false;
+        //this._spaceHit = false;
         this._mute = false;
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
@@ -25,41 +25,37 @@ window.Controls = (function() {
     };
 
     Controls.prototype._onKeyDown = function(e) {
-        console.log('in key down');
         // Only jump if space wasn't pressed.
 
-        if (e.keyCode === 32 && !this._spaceHit) {
+        if (e.keyCode === 32 && !this._didSwim) {
             this._didJump = true;
         }
 
         // Remember that this button is down.
         if (e.keyCode === 32) {
-            this._spaceHit = true;
+            this._didSwim = true;
             return false;
         }
     };
 
     Controls.prototype._onKeyUp = function(e) {
         if (e.keyCode === 32) {
-            this._spaceHit = false;
+            this._didSwim = false;
             return false;
         }
     };
 
     Controls.prototype._onMouseDown = function(e) {
 
-        this._didClick = true;
-        console.log(e);
+        this._didSwim = true;
     };
 
     Controls.prototype._onMouseUp = function(e) {
 
-        this._didClick = false;
-        console.log(e);
+        this._didSwim = false;
     };
 
     Controls.prototype._onMuteClick = function(e) {
-        console.log(e);
 
         var el = document.getElementById('MuteButton');
         if (el.firstChild.data === 'Mute') {
@@ -77,12 +73,10 @@ window.Controls = (function() {
      * Only answers true once until a key is pressed again.
      */
     Controls.prototype.didJump = function() {
-        console.log('in the fucking didJump function!');
         var answer = this._didJump;
         this._didJump = false;
         return answer;
     };
-    
     
     // Export singleton.
     return new Controls();
