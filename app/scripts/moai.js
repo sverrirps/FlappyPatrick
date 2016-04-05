@@ -1,15 +1,15 @@
 window.Moai = (function() {
 	'use strict';
 
-	//var Player = window.Player;
 	var SPEED = 10;
 	var MOAIWIDTH = 12.8;
 	var CLEARANCE = 25;
 
-	var Moai = function(el, game) {
+	var Moai = function(el, game, player) {
 		this.el = el;
 		this.game = game;
-		console.log('rassi fuck');
+		this.hasStarted = false;
+		this.player = player;
 		this.moais = [
 			{
 				name: 'moai1',
@@ -27,19 +27,14 @@ window.Moai = (function() {
 				lowerMoai: new MakeMoai(this.el.find('.MoaiReverse3'), this.game.WORLD_WIDTH * 1.8, 0, 0)
 			}
 		];
-		console.log(this.moais[0].lowerMoai.pos.angle);
-		console.log(this.moais);
 	};
 
 	var MakeMoai = function(moai, x, y, angle) {
 		this.moai = moai;
 		this.pos = {x: x, y: y, angle: angle};
-		//console.log('moai angle: ');
-		//.log(angle);
 	};
 
 	Moai.prototype.reset = function() {
-		console.log(this.moais);
 		for (var i = 0; i < this.moais.length; i++) {
 			this.moais[i].upperMoai.pos.x = this.game.WORLD_WIDTH + (4 * i * this.game.WORLD_WIDTH / 10);
 			this.moais[i].lowerMoai.pos.x = this.game.WORLD_WIDTH + (4 * i * this.game.WORLD_WIDTH / 10);
@@ -51,30 +46,35 @@ window.Moai = (function() {
 			this.el[i * 2].style.height = randomHeight + 'em';
 			this.el[i * 2 + 1].style.height = (this.game.WORLD_HEIGHT - randomHeight - CLEARANCE) + 'em';
 		}
+		this.transformMoai();
 	};
 
 	Moai.prototype.onFrame = function(delta){
-		//Move moais
-		SPEED = 21;
-		for (var i = 0; i < this.moais.length; i++) {
-			this.moais[i].upperMoai.pos.x -= delta * SPEED;
-			this.moais[i].lowerMoai.pos.x -= delta * SPEED;
+		if(this.player.hasStarted) {
+			//Move moais
+			SPEED = 21;
+			for (var i = 0; i < this.moais.length; i++) {
+				this.moais[i].upperMoai.pos.x -= delta * SPEED;
+				this.moais[i].lowerMoai.pos.x -= delta * SPEED;
 
-			if (this.moais[i].upperMoai.pos.x + MOAIWIDTH < 0) {
-				//Find new random height 
-				//Get random integer between 1 and 10 (Math.random() * (max - min + 1) + min;)
-				var randomHeight = Math.floor(Math.random() * (34 - 9 + 1)) + 9;
+				if (this.moais[i].upperMoai.pos.x + MOAIWIDTH < 0) {
+					//Find new random height 
+					//Get random integer between 1 and 10 (Math.random() * (max - min + 1) + min;)
+					var randomHeight = Math.floor(Math.random() * (34 - 9 + 1)) + 9;
 
-				//TODO set height
-				this.el[i * 2].style.height = randomHeight + 'em';
-				this.el[i * 2 + 1].style.height = (this.game.WORLD_HEIGHT - randomHeight - CLEARANCE) + 'em';
+					//TODO set height
+					this.el[i * 2].style.height = randomHeight + 'em';
+					this.el[i * 2 + 1].style.height = (this.game.WORLD_HEIGHT - randomHeight - CLEARANCE) + 'em';
 
-				this.moais[i].upperMoai.pos.x = this.game.WORLD_WIDTH * 1.2 - MOAIWIDTH;
-				this.moais[i].lowerMoai.pos.x = this.game.WORLD_WIDTH * 1.2 - MOAIWIDTH;
+					this.moais[i].upperMoai.pos.x = this.game.WORLD_WIDTH * 1.2 - MOAIWIDTH;
+					this.moais[i].lowerMoai.pos.x = this.game.WORLD_WIDTH * 1.2 - MOAIWIDTH;
+				}
 			}
+			this.transformMoai();
 		}
-		
-		// Update UI				
+	};
+
+	Moai.prototype.transformMoai = function() {
 		for (var j = 0; j < this.moais.length; j++) {
 
 			this.el[j * 2].style.transform = 'translate3d(' +
@@ -107,7 +107,7 @@ window.Moai = (function() {
 				this.moais[j].lowerMoai.pos.y + 'em, 0em) rotate(' +
 				this.moais[j].lowerMoai.pos.angle + 'deg)';
 		}
-	};
+	}
 
 	return Moai;
 
