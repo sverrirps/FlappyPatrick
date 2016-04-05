@@ -2,6 +2,7 @@ window.Player = (function() {
 	'use strict';
 
 	var Controls = window.Controls;
+	var Moais = window.Moai;
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1280x720px canvas.
@@ -18,6 +19,7 @@ window.Player = (function() {
 		this.game = game;
 		this.pos = { x: 0, y: 0, angle: 0 };
 		this.playerAlive = true;
+		this.hasStarted = false;
 		this.highScore = 0;
 		document.getElementById('Highscore').innerHTML = this.highScore;
 	};
@@ -30,14 +32,16 @@ window.Player = (function() {
 		this.pos.y = INITIAL_POSITION_Y;
 		this.pos.angle = 0;
 		this.playerAlive = true;
+		this.hasStarted = false;
 		this.nextMaoiNr = 0;
 		this.currentScore = 0;
 		SPEED = 30;
 		document.getElementById('Score').innerHTML = this.currentScore;
+		this.transformPlayer();
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		if ((Controls._spaceHit) || (Controls._didClick)) {
+		if (Controls._didSwim && this.hasStarted) {
 
 			//play sound:
 			if (!Controls._mute) {
@@ -56,19 +60,26 @@ window.Player = (function() {
 				this.pos.angle = 0;
 			}
 
-		} else {
+		} else if (this.hasStarted) {
 			SPEED += GRAVITY;
 			this.pos.y += delta * SPEED;
 
 			if(this.pos.angle < 120) {
 				this.pos.angle += (delta * SPEED * 4);
 			}
-		}
+		} else if(Controls._didSwim) {
+			this.hasStarted = true;
+			//Moais.hasStarted = true;
+		} else {return;}
 
 		this.checkCollisionWithBounds();
 		this.checkCollisionWithMoais();
-
+		this.transformPlayer();
 		// Update UI
+
+	};
+
+	Player.prototype.transformPlayer = function() {
 		this.el.css('transform', 'translate3d(' + this.pos.x +
 			'em, ' + this.pos.y + 'em, 0em) rotate(' + this.pos.angle + 'deg)');
 
@@ -77,8 +88,7 @@ window.Player = (function() {
 
 		this.el.css('-webkit-transform', 'translate3d(' + this.pos.x +
 			'em, ' + this.pos.y + 'em, 0em) rotate(' + this.pos.angle + 'deg)');
-
-	};
+	}
 
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.x < 0 ||
@@ -104,7 +114,6 @@ window.Player = (function() {
 				//Check for y-ais collision
 				if ((this.pos.y <= lower) ||
 					((this.pos.y + PLAYERHEIGHT) >= higher)) {
-					console.log('Y collision');
 
 					this.playerAlive = false;
 					this.playLoserSound();
