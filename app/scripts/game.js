@@ -27,6 +27,8 @@ window.Game = (function() {
 			return;
 		}
 
+		
+
 		// Calculate how long since last frame in seconds.
 		var now = +new Date() / 1000,
 				delta = now - this.lastFrame;

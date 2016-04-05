@@ -24,6 +24,7 @@
         <![endif]-->
 
         <div class="GameCanvas">
+            <div class="ScoreTextPlaying"><span id='ScorePlaying'></span></div>
             <div class="bubbles">
                 <div class="bubble1"></div>
                 <div class="bubble2"></div>
@@ -81,14 +82,17 @@
                 </div>
             </div>
         </div>
-        <audio class="Huh">
-            <source src="/images/huh.mp3" type="audio/mpeg">
+        <audio class="Huh" preload="auto">
+            <source src="/images/splash.wav" type="audio/mpeg">
+            Audio not supported by your browser :(
         </audio>
-        <audio class="Loser">
+        <audio class="Loser" preload="auto">
             <source src="/images/loser.mp3" type="audio/mpeg">
+            Audio not supported by your browser :(
         </audio>
-        <audio class="Ocean">
+        <audio class="Ocean" preload="auto" autoplay loop>
             <source src="/images/ocean.mp3" type="audio/mpeg">
+            Audio not supported by your browser :(
         </audio>
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->

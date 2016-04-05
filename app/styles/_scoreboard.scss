@@ -51,14 +51,20 @@
 	color: #AA250A;
 }
 
-.ScoreText {
-	font-size: 500%;
+.ScoreTextPlaying {
+	font-size: 700%;
 	color: White;
-	margin-top: em(60px);
+	margin-left: em(5px);
+}
+
+.ScoreText {
+	font-size: 400%;
+	color: White;
+	margin-top: em(80px);
 }
 
 .Score {
-	font-size: 500%;
+	font-size: 400%;
 	color: White;
 	margin-top: em(60px);
 }

@@ -41,7 +41,9 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
+
 		if (Controls._didSwim && this.hasStarted) {
+			document.getElementById('ScorePlaying').innerHTML = this.currentScore;
 
 			//play sound:
 			if (!Controls._mute) {
@@ -52,6 +54,7 @@ window.Player = (function() {
 			        audio.currentTime = 0;
 			    }
 			}
+			
 
 			SPEED = 10;
 			this.pos.y -= delta * (SPEED * 10);
@@ -72,9 +75,10 @@ window.Player = (function() {
 			//Moais.hasStarted = true;
 		} else {return;}
 
+		this.transformPlayer();
 		this.checkCollisionWithBounds();
 		this.checkCollisionWithMoais();
-		this.transformPlayer();
+		
 		// Update UI
 
 	};
@@ -120,6 +124,7 @@ window.Player = (function() {
 					return this.game.gameover();
 				} else if (i === this.nextMaoiNr) {
 					this.currentScore++;
+					document.getElementById('ScorePlaying').innerHTML = this.currentScore;
 					document.getElementById('Score').innerHTML = this.currentScore;
 					if (this.currentScore > this.highScore) {
 						this.highScore = this.currentScore;
