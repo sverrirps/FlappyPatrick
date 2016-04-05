@@ -34,6 +34,7 @@ window.Player = (function() {
 		this.currentScore = 0;
 		SPEED = 30;
 		document.getElementById('Score').innerHTML = this.currentScore;
+		document.getElementById('ScorePlaying').innerHTML = this.currentScore;
 	};
 
 	Player.prototype.onFrame = function(delta) {
@@ -113,6 +114,7 @@ window.Player = (function() {
 					return this.game.gameover();
 				} else if (i === this.nextMaoiNr) {
 					this.currentScore++;
+					document.getElementById('ScorePlaying').innerHTML = this.currentScore;
 					document.getElementById('Score').innerHTML = this.currentScore;
 					if (this.currentScore > this.highScore) {
 						this.highScore = this.currentScore;
