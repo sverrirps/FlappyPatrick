@@ -1,4 +1,5 @@
 $base-font-size: 10px;
+$fa-font-path: "fonts";
 
 @function em($px, $base: $base-font-size) {
     @return ($px / $base) * 1em;
