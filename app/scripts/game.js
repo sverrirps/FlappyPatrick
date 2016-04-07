@@ -59,9 +59,12 @@ window.Game = (function() {
 	 */
 	Game.prototype.reset = function() {
 		var floor = document.getElementsByClassName('Floor')[0];
+		var hand = document.getElementsByClassName('PlayerWings')[0];
 
 		floor.style.WebkitAnimationPlayState = 'initial';
 		floor.style.animationPlayState = 'initial';
+		hand.style.WebkitAnimationPlayState = 'initial';
+		hand.style.animationPlayState = 'initial';
 
 		this.player.reset();
 		this.moai.reset();
@@ -75,9 +78,12 @@ window.Game = (function() {
 		this.isPlaying = false;
 
 		var floor = document.getElementsByClassName('Floor')[0];
+		var hand = document.getElementsByClassName('PlayerWings')[0];
 		
 		floor.style.WebkitAnimationPlayState = 'paused';
 		floor.style.animationPlayState = 'paused';
+		hand.style.WebkitAnimationPlayState = 'paused';
+		hand.style.animationPlayState = 'paused';
 		
 		// Should be refactored into a Scoreboard class.
 		var that = this;
