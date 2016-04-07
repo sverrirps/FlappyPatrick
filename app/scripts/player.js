@@ -108,16 +108,16 @@ window.Player = (function() {
 
 	Player.prototype.checkCollisionWithMoais = function() {
 		for (var i = 0; i < this.game.moai.moais.length; i++) {
-			//Check for x-ais collision
+			//Check for x-axis collision
 			if ((this.pos.x + PLAYERWIDTH >= this.game.moai.moais[i].upperMoai.pos.x) &&
-				(this.pos.x + PLAYERWIDTH < this.game.moai.moais[i].upperMoai.pos.x + MOAISWIDTH + PLAYERWIDTH)) {
+				(this.pos.x < this.game.moai.moais[i].upperMoai.pos.x + MOAISWIDTH)) {
 
 				var lower = parseFloat(this.game.moai.el[i * 2].style.height);
 				var higher = this.game.WORLD_HEIGHT - parseFloat(this.game.moai.el[i * 2 + 1].style.height);
 
-				//Check for y-ais collision
+				//Check for y-axis collision
 				if ((this.pos.y <= lower) ||
-					((this.pos.y + PLAYERHEIGHT) >= higher)) {
+					((this.pos.y + PLAYERHEIGHT) >= higher + 2)) {
 
 					this.playerAlive = false;
 					this.playLoserSound();
