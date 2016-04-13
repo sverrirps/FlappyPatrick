@@ -1,0 +1,6 @@
+{
+  "name": "Flappypatrick",
+  "tagline": "",
+  "body": "# HTML5 CSS-based Game\r\n\r\nThis game project has the following:\r\n\r\n* 1280x720 pixel game canvas.\r\n* All positions and sizes defined using a 10px em.\r\n* A simple game loop which calculates delta and can be started and stopped.\r\n* A player entity which can jump up when mouse is clicked or space bar is pressed.\r\n* A \"Game Over\" screen when player touches the ground or the obstacles. There you can see the highscore and restart the game.",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
